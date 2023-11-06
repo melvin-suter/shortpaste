@@ -16,8 +16,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Build
-      id: version
+    - name: Buildg
       run: |
         ./build.sh
 
