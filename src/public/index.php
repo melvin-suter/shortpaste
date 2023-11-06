@@ -20,7 +20,7 @@ if(isset($_GET['link'])) {
 ?>
 <html>
     <head>
-        <title><?=$SITE_TITLE;?></title>
+        <title><?=SITE_TITLE;?></title>
         <link href="/assets/styles.css" rel="stylesheet"/>
     </head>
     <body>
@@ -29,7 +29,7 @@ if(isset($_GET['link'])) {
 
                 default:
                     ?>
-                        <h1><?=$SITE_TITLE;?></h1>
+                        <h1><a href="/"><?=SITE_TITLE;?></a></h1>
                         <form action="" method="post" class="form">
                             <textarea name="content" class="content"></textarea>
 
@@ -40,9 +40,9 @@ if(isset($_GET['link'])) {
                 
                 case 'link':
                     ?>
-                    <h1><?=$SITE_TITLE;?></h1>
+                    <h1><a href="/"><?=SITE_TITLE;?></a></h1>
                     <div class="form">
-                        <?php if($URL_PRETTY){ ?>
+                        <?php if(URL_PRETTY){ ?>
                             Your url is: <a class="link" href="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/p/$link"?>"><?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/p/$link"?></a>
                         <?php } else { ?>
                             Your url is: <a class="link" href="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/?id=$link"?>"><?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/?id=$link"?></a>
@@ -55,7 +55,7 @@ if(isset($_GET['link'])) {
                 
                 case 'result':
                     ?>
-                    <h1><?=$SITE_TITLE;?></h1>
+                    <h1><a href="/"><?=SITE_TITLE;?></a></h1>
                     <div class="form">
                         <textarea readonly class="content"><?=$paste['content'];?></textarea>
 
@@ -65,7 +65,7 @@ if(isset($_GET['link'])) {
                 
                 case 'error': 
                 ?>
-                    <h1><?=$SITE_TITLE;?></h1>
+                    <h1><a href="/"><?=SITE_TITLE;?></a></h1>
                     <div class="form">
                         Paste Not Found!
                     </div>

@@ -57,9 +57,9 @@ class Helper {
 
     public static function encrypt($key, $content) {
         $password = substr(hash('sha256', $key, true), 0, 32);
-        $ivlen = openssl_cipher_iv_length("aes-256-cbc-hmac-sha256");
+        $ivlen = openssl_cipher_iv_length(CRYPT_CIPHER);
         $iv = openssl_random_pseudo_bytes($ivlen);
-        return base64_encode($iv) . ":" . base64_encode(openssl_encrypt($content, "aes-256-cbc-hmac-sha256", $password, OPENSSL_RAW_DATA, $iv));
+        return base64_encode($iv) . ":" . base64_encode(openssl_encrypt($content, CRYPT_CIPHER, $password, OPENSSL_RAW_DATA, $iv));
         
     }
 
@@ -67,7 +67,7 @@ class Helper {
         $iv = base64_decode(explode(":",$content)[0]);
         $contentReal = implode(":", array_slice(explode(":",$content),1));
         $password = substr(hash('sha256', $key, true), 0, 32);
-        return openssl_decrypt(base64_decode($contentReal), "aes-256-cbc-hmac-sha256", $password, OPENSSL_RAW_DATA, $iv);
+        return openssl_decrypt(base64_decode($contentReal), CRYPT_CIPHER, $password, OPENSSL_RAW_DATA, $iv);
     }
 
     public static function addPaste($db, $pasteKey, $content) {
