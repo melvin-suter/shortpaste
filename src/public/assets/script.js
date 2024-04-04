@@ -14,8 +14,8 @@
 
     document.querySelectorAll(".copy-link").forEach((el,i)=> {
         el.addEventListener('click', () => {
-            console.log(document.querySelector('.link').innerHTML);
-            copy2clipboard(document.querySelector('.link').innerHTML);
+            console.log(document.querySelector('.link').value);
+            copy2clipboard(document.querySelector('.link').value);
         });
     });
 
