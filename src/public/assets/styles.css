@@ -24,6 +24,30 @@ html .container, body .container {
   align-items: center;
   flex-direction: column;
 }
+html .container .row, body .container .row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+html .container .row .col-full, body .container .row .col-full {
+  width: 100%;
+}
+html .container .row .col-full input.link, body .container .row .col-full input.link {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+html .container .row .col .btn, body .container .row .col .btn {
+  height: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 html .container .form, body .container .form {
   width: 100%;
   display: flex;
@@ -51,7 +75,12 @@ html .container .form .btn, body .container .form .btn {
   margin-top: 1rem;
   width: 100%;
   padding: 1rem;
+  display: inline-block;
   font-size: 1.5rem;
+  text-align: center;
+}
+html .container .form .btn:hover, body .container .form .btn:hover {
+  text-decoration: underline !important;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -42,14 +42,25 @@ if(isset($_GET['link'])) {
                     ?>
                     <h1><a href="/"><?=SITE_TITLE;?></a></h1>
                     <div class="form">
+                    Your url is: 
+                        <div class="row">
+                            <div class="col-full">
+                                <?php if(URL_PRETTY){ ?>
+                                    <input type="text" class="link" readonly value="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/l/$link"?>"/>
+                                <?php } else { ?>
+                                    <input type="text" class="link" readonly value="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/?link=$link"?>"/>
+                                <?php } ?>
+                            </div>
+                            <div class="col">
+                                <input class="btn copy-link" type="submit" value="Copy"/>
+                            </div>
+                        </div>
                         <?php if(URL_PRETTY){ ?>
-                            Your url is: <a class="link" href="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/p/$link"?>"><?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/p/$link"?></a>
+                            <a class="btn copy-link" href="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/p/$link"?>">Show Content</a>
                         <?php } else { ?>
-                            Your url is: <a class="link" href="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/?id=$link"?>"><?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/?id=$link"?></a>
+                            <a class="btn copy-link" href="<?=(empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/?id=$link"?>">Show Content</a>
                         <?php } ?>
 
-
-                        <input class="btn copy-link" type="submit" value="Copy"/>
                     </div>
                 <?php break; 
                 

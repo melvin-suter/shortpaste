@@ -9,4 +9,4 @@ export PASTE_EXPIRATION=15
 export URL_PRETTY="false"
 
 sass --watch $SCRIPT_DIR/src/styles/styles.scss $SCRIPT_DIR/src/public/assets/styles.css & \
-php -S localhost:8000  && fg
+php -S localhost:8080  && fg
